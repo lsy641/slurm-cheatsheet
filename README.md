@@ -5,8 +5,10 @@
 ## account limit
 
 sacctmgr -p show assoc where account=mihalcea_root
-Cluster|Account|User|Partition|Share|Priority|GrpJobs|GrpTRES|GrpSubmit|GrpWall|GrpTRESMins|MaxJobs|MaxTRES|MaxTRESPerNode|MaxSubmit|MaxWall|MaxTRESMins|QOS|Def QOS|GrpTRESRunMins|
-greatlakes|account_name|||1|||cpu=500,gres/gpu=12,mem=7000G||||||||||interactive,normal|||
+
+or
+
+sacctmgr -p show assoc |grep mihalcea
 
 ## Show the GPU partition queue for an account
 ```bash
