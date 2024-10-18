@@ -2,6 +2,12 @@
 
 *Adapted from Santiago's Slurm Cheatsheet: https://github.com/bryant1410/slurm-cheatsheet*
 
+## account limit
+
+sacctmgr -p show assoc where account=mihalcea_root
+Cluster|Account|User|Partition|Share|Priority|GrpJobs|GrpTRES|GrpSubmit|GrpWall|GrpTRESMins|MaxJobs|MaxTRES|MaxTRESPerNode|MaxSubmit|MaxWall|MaxTRESMins|QOS|Def QOS|GrpTRESRunMins|
+greatlakes|account_name|||1|||cpu=500,gres/gpu=12,mem=7000G||||||||||interactive,normal|||
+
 ## Show the GPU partition queue for an account
 ```bash
 squeue \
@@ -16,8 +22,8 @@ squeue \
 sreport \
   -T billing \
   cluster AccountUtilizationByUser \
-    start=mm/dd/yy \
-    end=mm/dd/yy \
+    start=mm-dd-yy \
+    end=mm-dd-yy \
     account=test \
 | sed -r 's/(.*billing\s+)([0-9]+)\b(.*)/echo "\1 \\$$(echo scale=2\\; \2\/100000 \| bc)\3"/ge'
 ```
